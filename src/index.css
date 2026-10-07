@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+/* ECLearnix design tokens — values taken from the Figma variables (ecl/*) */
+@theme {
+  --font-sans: "Figtree Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque Variable", "Figtree Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #17132e; /* text-primary / bg-inverse */
+  --color-ink-raised: #221d3e; /* bg-inverse-raised */
+  --color-body: #4a4763; /* text-secondary */
+  --color-muted: #7a7690; /* text-muted */
+  --color-on-dark-muted: #c9c5de;
+
+  --color-brand: #4b3bff;
+  --color-brand-hover: #3a2bef;
+  --color-brand-tint: #f2f0ff;
+  --color-brand-soft: #e1dcff;
+  --color-highlight: #d6fa5a;
+  --color-highlight-hover: #c9f03f;
+  --color-coral: #ff7a59;
+  --color-tag-purple: #6c5fff;
+
+  --color-lavender: #e9e5ff;
+  --color-peach: #ffe4d9;
+  --color-butter: #fff3c4;
+  --color-mint: #d9f4e4;
+
+  --color-page: #ffffff;
+  --color-subtle: #f7f6fb;
+  --color-field: #f4f2fc; /* bg-input */
+  --color-app: #f7faff; /* dashboard / lesson canvas */
+
+  --color-line: #ece9f6; /* border-default */
+  --color-line-strong: #e2dff0; /* border-strong */
+  --color-line-blue: #e9effd;
+
+  --color-success: #1e8a4c;
+  --color-success-bg: #e4f8ea;
+  --color-streak: #e2531f;
+  --color-streak-bg: #fff0e8;
+  --color-danger: #d4351c;
+  --color-danger-bg: #fdecea;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --shadow-l: 0px 24px 48px -20px rgba(23, 19, 46, 0.28);
+  --shadow-pop: 0px 18px 40px -12px rgba(23, 19, 46, 0.22), 0 0 0 1px rgba(23, 19, 46, 0.04);
+
+  --animate-pop: pop 140ms ease-out;
+  --animate-fade: fade 160ms ease-out;
+  --animate-toast: toast 220ms cubic-bezier(0.2, 0.9, 0.3, 1.2);
+
+  @keyframes pop {
+    from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes toast {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+/* Text styles — ECLearnix/* typography from Figma (letter-spacing % converted to px) */
+@utility t-display-xl { font-family: var(--font-display); font-weight: 800; font-size: 80px; line-height: 80px; letter-spacing: -3.6px; }
+@utility t-display-l { font-family: var(--font-display); font-weight: 800; font-size: 56px; line-height: 58px; letter-spacing: -2.24px; }
+@utility t-stat { font-family: var(--font-display); font-weight: 800; font-size: 52px; line-height: 52px; letter-spacing: -2.08px; }
+@utility t-heading-l { font-family: var(--font-display); font-weight: 800; font-size: 40px; line-height: 44px; letter-spacing: -1.6px; }
+@utility t-heading-m { font-family: var(--font-display); font-weight: 800; font-size: 28px; line-height: 32px; letter-spacing: -0.84px; }
+@utility t-heading-s { font-family: var(--font-display); font-weight: 800; font-size: 20px; line-height: 25px; letter-spacing: -0.4px; }
+@utility t-wordmark { font-family: var(--font-display); font-weight: 800; font-size: 22px; line-height: 26px; letter-spacing: -0.77px; }
+@utility t-body-l { font-weight: 400; font-size: 19px; line-height: 29px; }
+@utility t-body-m { font-weight: 400; font-size: 16px; line-height: 24px; }
+@utility t-body-s { font-weight: 400; font-size: 14px; line-height: 20px; }
+@utility t-label-l { font-weight: 700; font-size: 16px; line-height: 20px; }
+@utility t-label-m { font-weight: 700; font-size: 14px; line-height: 18px; }
+@utility t-label-s { font-weight: 600; font-size: 13px; line-height: 18px; }
+@utility t-overline { font-weight: 800; font-size: 12px; line-height: 16px; letter-spacing: 1.2px; text-transform: uppercase; }
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { font-family: var(--font-sans); color: var(--color-ink); background: var(--color-page); }
+  button { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+  :focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; border-radius: 6px; }
+  ::selection { background: var(--color-highlight); color: var(--color-ink); }
+}
+
+.scrollbar-none { scrollbar-width: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+
+input[type="range"].seek { appearance: none; background: transparent; }
